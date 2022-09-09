@@ -1,0 +1,109 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Buttons/restartBtn.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Buttons/quitBtn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://fadeIn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/gameover.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Assets/win.mp3" type="AudioStream" id=6]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Control
+
+
+func _ready():
+	if(global.stopReason == \"Game Over\"):
+		get_node(\"gameOverSound\").play()
+	else:
+		get_node(\"winSound\").play()
+		
+	get_node(\"gameOver\").text = str(global.stopReason)
+	get_node(\"score\").text = str(global.score)
+
+func _on_quitBtn_pressed():
+	get_tree().quit()
+"
+
+[sub_resource type="DynamicFont" id=1]
+size = 82
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 1 )
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends Button
+
+
+
+"
+
+[node name="gameOverScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = SubResource( 2 )
+
+[node name="gameOver" type="Label" parent="."]
+margin_left = 264.0
+margin_top = 168.0
+margin_right = 751.0
+margin_bottom = 269.0
+custom_fonts/font = SubResource( 1 )
+text = "Game Over"
+align = 1
+valign = 1
+
+[node name="scoreLbl" type="Label" parent="."]
+margin_left = 458.0
+margin_top = 274.0
+margin_right = 532.0
+margin_bottom = 295.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "SCORE : "
+
+[node name="score" type="Label" parent="."]
+margin_left = 535.0
+margin_top = 274.0
+margin_right = 575.0
+margin_bottom = 295.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 4 )
+
+[node name="buttons" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 297.0
+margin_bottom = -136.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+
+[node name="restartBtn" parent="buttons" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 13.0
+margin_right = 1024.0
+margin_bottom = 73.0
+
+[node name="quitBtn" parent="buttons" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 93.0
+margin_right = 1024.0
+margin_bottom = 153.0
+script = SubResource( 5 )
+
+[node name="FadeIn" parent="." instance=ExtResource( 4 )]
+visible = false
+color = Color( 0, 0, 0, 0 )
+
+[node name="gameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="winSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[connection signal="pressed" from="buttons/quitBtn" to="." method="_on_quitBtn_pressed"]

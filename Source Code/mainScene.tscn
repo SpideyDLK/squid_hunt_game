@@ -1,0 +1,189 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://ground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/back.jpg" type="Texture" id=3]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://wall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://coin.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://mainScene.gd" type="Script" id=8]
+[ext_resource path="res://Assets/coin.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Assets/kill.mp3" type="AudioStream" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9.5, 55.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 127.992, 5.50714 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = ExtResource( 7 )
+
+[node name="mainScene" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1026.0
+margin_bottom = 602.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="wall" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0, 468 )
+
+[node name="wall9" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1024, 464 )
+
+[node name="wall10" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1024, 264 )
+
+[node name="wall11" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1024, 64 )
+
+[node name="wall2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0, 268 )
+
+[node name="wall3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0, 68 )
+
+[node name="ground" parent="." instance=ExtResource( 1 )]
+position = Vector2( 128, 580 )
+
+[node name="ground3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 640, 580 )
+
+[node name="ground4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 896, 580 )
+
+[node name="ground5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 386, 443 )
+scale = Vector2( 0.227791, 1.36199 )
+
+[node name="ground6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 681, 366 )
+scale = Vector2( 0.56, 1 )
+
+[node name="ground9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 145, 241 )
+
+[node name="ground11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 879, 117 )
+
+[node name="ground12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 679, 117 )
+scale = Vector2( 0.560002, 1 )
+
+[node name="ground10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 329, 241 )
+scale = Vector2( 0.439999, 1 )
+
+[node name="ground7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 880, 366 )
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 125, 518 )
+
+[node name="enemy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 816, 508 )
+
+[node name="enemy2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 652, 294 )
+
+[node name="enemy4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 348, 169 )
+
+[node name="enemy5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 969, 45 )
+
+[node name="coin" parent="." instance=ExtResource( 6 )]
+position = Vector2( 386, 389 )
+
+[node name="coin2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 639, 533 )
+
+[node name="coin3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 894, 531 )
+
+[node name="coin4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 878, 320 )
+
+[node name="coin5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 144, 193 )
+
+[node name="coin6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 877, 70 )
+
+[node name="coin8" parent="." instance=ExtResource( 6 )]
+position = Vector2( 678, 71 )
+
+[node name="coin9" parent="." instance=ExtResource( 6 )]
+position = Vector2( 440, 65 )
+
+[node name="edgeDitector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="edgeDitector"]
+position = Vector2( 1011, 508 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="edgeDitector"]
+position = Vector2( 513, 550 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="edgeDitector"]
+position = Vector2( 612, 331 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="edgeDitector"]
+position = Vector2( 384, 207 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="edgeDitector"]
+position = Vector2( 16, 204 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="edgeDitector"]
+position = Vector2( 1007, 81 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="edgeDitector"]
+position = Vector2( 610, 80 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="edgeDitector"]
+position = Vector2( 1005, 332 )
+shape = SubResource( 1 )
+
+[node name="pitDitector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pitDitector"]
+position = Vector2( 383.991, 602.688 )
+rotation = 3.13686
+shape = SubResource( 2 )
+
+[node name="scoreLbl" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 8.0
+margin_right = 68.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "SCORE : "
+
+[node name="score" type="Label" parent="."]
+margin_left = 141.0
+margin_top = 9.0
+margin_right = 253.0
+margin_bottom = 41.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+
+[node name="coinCollect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="killSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[connection signal="body_entered" from="edgeDitector" to="player" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="pitDitector" to="player" method="_on_pitDitector_body_entered"]

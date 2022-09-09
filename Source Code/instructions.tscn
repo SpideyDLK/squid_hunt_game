@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://instructions.gd" type="Script" id=2]
+[ext_resource path="res://Assets/beep.mp3" type="AudioStream" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 63
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 46
+extra_spacing_top = 6
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 39
+font_data = ExtResource( 1 )
+
+[node name="instructions" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="topic" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 39.0
+margin_bottom = 116.0
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 5
+custom_fonts/font = SubResource( 1 )
+text = "Hunt All Squid"
+align = 1
+
+[node name="keys" type="Label" parent="."]
+margin_left = 194.0
+margin_top = 176.0
+margin_right = 385.0
+margin_bottom = 437.0
+custom_fonts/font = SubResource( 2 )
+text = "W
+A
+D
+Space"
+align = 1
+valign = 1
+
+[node name="dash" type="Label" parent="."]
+margin_left = 365.0
+margin_top = 176.0
+margin_right = 556.0
+margin_bottom = 437.0
+custom_fonts/font = SubResource( 2 )
+text = "-
+-
+-
+-"
+align = 1
+valign = 1
+
+[node name="action" type="Label" parent="."]
+margin_left = 529.0
+margin_top = 176.0
+margin_right = 809.0
+margin_bottom = 437.0
+custom_fonts/font = SubResource( 2 )
+text = "Jump
+Move Left
+Move Right
+Shoot"
+align = 1
+valign = 1
+
+[node name="countDown" type="Label" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 2.0
+margin_top = 185.0
+margin_right = 2.0
+margin_bottom = 233.0
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 5
+custom_fonts/font = SubResource( 3 )
+align = 1
+
+[node name="beep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
